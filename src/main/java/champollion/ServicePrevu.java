@@ -7,7 +7,7 @@ public class ServicePrevu {
     private int TP;
     private UE ue;
    
-    public ServicePrevu(int CM,int TD,int TP, UE ue){
+    public ServicePrevu(UE ue, int CM,int TD,int TP){
         this.CM = CM;
         this.TD = TD;
         this.TP = TP;
