@@ -63,8 +63,33 @@ public class ChampollionJUnitTest {
             Intervention i2 = new Intervention(s, java, d, 2, TypeIntervention.CM);
             untel.ajouteIntervention(i2);
             
-            assertEquals(5, untel.heuresPlanifiees());   
+            assertEquals(5, untel.heuresPlanifiees());  
+            
+            Intervention i3 = new Intervention(s, java, d, 3, TypeIntervention.TP);
+            untel.ajouteIntervention(i3);
+            
+            assertEquals(7, untel.heuresPlanifiees()); 
+            
+            Intervention i4 = new Intervention(s, java, d, 3, null);
+            untel.ajouteIntervention(i4);
+            
+            assertEquals(10, untel.heuresPlanifiees());
         }
 	
-        
+        @Test
+        public void testSousService(){
+            Salle s = new Salle("Amphi", 50);
+            Date d = new Date(19/11/2020);
+            
+            untel.ajouteEnseignement(uml, 10, 10, 10);
+            
+            Intervention i1 = new Intervention(s, uml, d, 10, TypeIntervention.TD);
+            untel.ajouteIntervention(i1);
+            
+            Intervention i2 = new Intervention(s, uml, d, 10, TypeIntervention.TP);
+            untel.ajouteIntervention(i2);
+            
+            assertEquals(true, untel.enSousService(), 
+                    "L'enseignant doit être en sous servise");
+        }
 }
