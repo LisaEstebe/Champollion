@@ -1,9 +1,14 @@
 package champollion;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Enseignant extends Personne {
 
     // TODO : rajouter les autres méthodes présentes dans le diagramme UML
 
+    private final List<ServicePrevu> myServicePrevu = new LinkedList<>();
+    
     public Enseignant(String nom, String email) {
         super(nom, email);
     }
@@ -45,7 +50,8 @@ public class Enseignant extends Personne {
      */
     public void ajouteEnseignement(UE ue, int volumeCM, int volumeTD, int volumeTP) {
         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        myServicePrevu.add(new ServicePrevu(ue, volumeCM, volumeTD, volumeTP));
+        
     }
 
 }
