@@ -17,7 +17,7 @@ public class Intervention {
     private final UE ue;
     private final Salle salle;
     private final TypeIntervention type;
-    private final boolean annulee=false;
+    private boolean annulee=false;
     
 
     public Intervention (Salle salle, UE ue, Date debut, int duree, TypeIntervention type){
@@ -37,8 +37,8 @@ public class Intervention {
         return type;
     }
     
-    /*public void setBoolean(boolean a){
+    public void setBoolean(boolean a){
         this.annulee = a;
-    }*/
+    }
     
 }
