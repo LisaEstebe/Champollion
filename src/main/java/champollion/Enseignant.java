@@ -1,5 +1,6 @@
 package champollion;
 
+import static java.lang.Math.round;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -23,7 +24,13 @@ public class Enseignant extends Personne {
      */
     public int heuresPrevues() {
         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        float compteur=0;
+        for (ServicePrevu s : myServicePrevu){
+            compteur += s.getCM()*1.5;
+            compteur += s.getTD();
+            compteur += s.getTP()*0.75;
+        }
+        return round(compteur);
     }
 
     /**
@@ -37,7 +44,15 @@ public class Enseignant extends Personne {
      */
     public int heuresPrevuesPourUE(UE ue) {
         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        float compteur=0;
+        for (ServicePrevu s : myServicePrevu){
+            if (s.getUe()==ue){
+                compteur += s.getCM()*1.5;
+                compteur += s.getTD();
+                compteur += s.getTP()*0.75;
+            }  
+        }
+        return round(compteur);
     }
 
     /**
