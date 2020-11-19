@@ -9,6 +9,7 @@ public class Enseignant extends Personne {
     // TODO : rajouter les autres méthodes présentes dans le diagramme UML
 
     private final List<ServicePrevu> myServicePrevu = new LinkedList<>();
+    private final List<Intervention> myInterventions = new LinkedList<>();
     
     public Enseignant(String nom, String email) {
         super(nom, email);
@@ -67,6 +68,10 @@ public class Enseignant extends Personne {
         // TODO: Implémenter cette méthode
         myServicePrevu.add(new ServicePrevu(ue, volumeCM, volumeTD, volumeTP));
         
+    }
+    
+    public void ajouteIntervention(Intervention i){
+        myInterventions.add(i);
     }
 
 }
