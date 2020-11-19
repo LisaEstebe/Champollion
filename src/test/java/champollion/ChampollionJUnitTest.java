@@ -1,5 +1,7 @@
 package champollion;
 
+import static champollion.TypeIntervention.TD;
+import java.util.Date;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -36,5 +38,33 @@ public class ChampollionJUnitTest {
                          "L'enseignant doit maintenant avoir 30 heures prévues pour l'UE 'uml'");		
 		
 	}
+        
+        @Test
+        public void testHeuresPrevues() {
+            //10CM, 10h TD, 10TP pour UML
+            untel.ajouteEnseignement(uml, 10, 10, 10);
+            untel.ajouteEnseignement(java, 5, 5, 5);
+            
+            assertEquals(49, untel.heuresPrevues(),
+                    "L'enseignant doit avoir 49 heures prévues");
+            
+        }
+        
+        @Test
+        public void testHeuresPlanifiees(){
+            Salle s = new Salle("Amphi", 50);
+            Date d = new Date(19/11/2020);
+            
+            Intervention i1 = new Intervention(s, uml, d, 2, TypeIntervention.TD);
+            untel.ajouteIntervention(i1);
+            
+           assertEquals(2, untel.heuresPlanifiees());
+            
+            Intervention i2 = new Intervention(s, java, d, 2, TypeIntervention.CM);
+            untel.ajouteIntervention(i2);
+            
+            assertEquals(4, untel.heuresPlanifiees());   
+        }
 	
+        
 }
