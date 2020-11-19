@@ -63,7 +63,7 @@ public class ChampollionJUnitTest {
             Intervention i2 = new Intervention(s, java, d, 2, TypeIntervention.CM);
             untel.ajouteIntervention(i2);
             
-            assertEquals(4, untel.heuresPlanifiees());   
+            assertEquals(5, untel.heuresPlanifiees());   
         }
 	
         
