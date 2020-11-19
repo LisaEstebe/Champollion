@@ -7,8 +7,8 @@ import java.util.List;
 public class Enseignant extends Personne {
 
     // TODO : rajouter les autres méthodes présentes dans le diagramme UML
-    private final List<ServicePrevu> myServicePrevu = new LinkedList<>();
-    private final List<Intervention> myInterventions = new LinkedList<>();
+    private List<ServicePrevu> myServicePrevu = new LinkedList<>();
+    private List<Intervention> myInterventions = new LinkedList<>();
 
     public Enseignant(String nom, String email) {
         super(nom, email);
